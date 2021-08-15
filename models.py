@@ -20,7 +20,7 @@ class Dish(db.Model):
     """"""
     __tablename__ = "dishes"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, unique=True)
+    title = db.Column(db.String, nullable=False, unique=True)
     price = db.Column(db.String, nullable=False)
     description = db.Column(db.Float, nullable=False)
     picture = db.Column(db.Float, nullable=False)
@@ -32,7 +32,7 @@ class Category(db.Model):
     """"""
     __tablename__ = "categories"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False, unique=True)
+    title = db.Column(db.String, nullable=False, unique=True)
     dish_id = db.Column(db.String, nullable=False)
     dish = db.Column(db.Float, nullable=False)
 

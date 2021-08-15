@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, HiddenField
+from wtforms import StringField, HiddenField, SubmitField
 from wtforms.validators import InputRequired
 
 
@@ -14,6 +14,7 @@ class RegisterForm(FlaskForm):
         "Пароль", 
         [InputRequired("Пожалуйста, придумайте ваш пароль")]
     )
+    submit = SubmitField("Зарегистрироваться")
 
 
 class LoginForm(FlaskForm):
@@ -26,6 +27,7 @@ class LoginForm(FlaskForm):
         "Пароль", 
         [InputRequired("Пожалуйста, введите ваш пароль")]
     )
+    submit = SubmitField()
 
 
 class CartForm(FlaskForm):
@@ -47,3 +49,4 @@ class CartForm(FlaskForm):
         [InputRequired("Пожалуйста, введите номер вашего телефона")]
     )
     order = HiddenField()
+    submit = SubmitField()
