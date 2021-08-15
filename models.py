@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-#from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import backref
 
 
 db = SQLAlchemy()
@@ -21,7 +21,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
-    orders = db.relationship("Order")
+    # orders = db.relationship("Order")
 
 
 class Dish(db.Model):
@@ -53,8 +53,7 @@ class Category(db.Model):
     __tablename__ = "categories"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
-
-    dish = db.relationship("Dish")
+    # dishes = db.relationship("Dish")
 
 
 class Order(db.Model):
