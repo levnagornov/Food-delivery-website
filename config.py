@@ -1,6 +1,3 @@
-import os
-
-
 class Config:
     DEBUG = True
     SECRET_KEY = "654e`sdxfc!gvhuij9io?lmkn'|jbhvyug-ihk"
