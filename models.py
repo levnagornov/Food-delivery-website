@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import backref
-
+from flask_login import UserMixin
 
 db = SQLAlchemy()
 
@@ -11,7 +10,7 @@ order_has_dish = db.Table(
     db.Column("dish_id", db.Integer, db.ForeignKey("dishes.id")),
 )
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     """
     This is `User` SQLAlchemy model.
     1. `User` is related with `Order` (one-to-many);
@@ -21,7 +20,6 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
-    # orders = db.relationship("Order")
 
 
 class Dish(db.Model):
@@ -53,7 +51,6 @@ class Category(db.Model):
     __tablename__ = "categories"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
-    # dishes = db.relationship("Dish")
 
 
 class Order(db.Model):

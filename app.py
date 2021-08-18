@@ -2,9 +2,10 @@ from flask import Flask
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
 
+
 from models import db
 from config import Config
-from views.views import view_blp
+from views.views import view_blp, login_manager
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -16,6 +17,8 @@ csrf = CSRFProtect(app)
 # initializing database
 db.init_app(app)
 migrate = Migrate(app, db, render_as_batch=True)
+
+login_manager.init_app(app)
 
 
 if __name__ == "__main__":
