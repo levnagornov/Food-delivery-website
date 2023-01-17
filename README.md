@@ -1,5 +1,4 @@
-# Food-delivery-flask-app
-# Stepik project
+# Food delivery website
 Training project for [a course on the Stepik](<https://stepik.org/course/61900/info>).
 
 ## Dependencies
